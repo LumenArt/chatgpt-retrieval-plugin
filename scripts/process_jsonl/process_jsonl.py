@@ -40,6 +40,9 @@ async def process_jsonl_dump(
             url = item.get("url", None)
             created_at = item.get("created_at", None)
             author = item.get("author", None)
+            title = item.get("title", None)
+            referenced_law = item.get("referenced_law", None)
+            keywords = item.get("keywords", None)
 
             if not text:
                 print("No document text, skipping...")
@@ -52,6 +55,9 @@ async def process_jsonl_dump(
                 url=url,
                 created_at=created_at,
                 author=author,
+                title=title,
+                referenced_law=referenced_law,
+                keywords=keywords,                
             )
 
             # update metadata with custom values
@@ -120,7 +126,7 @@ async def main():
     )
     parser.add_argument(
         "--extract_metadata",
-        default=False,
+        default=True,
         type=bool,
         help="A boolean flag to indicate whether to try to extract metadata from the document (using a language model)",
     )
