@@ -95,6 +95,43 @@ components:
         document_id:
           title: Document Id
           type: string
+        year:
+          title: Year
+          type: integer
+        law_type:
+          title: Law Type
+          type: string
+        jurisdiction:
+          title: Jurisdiction
+          type: string
+        subject_matter:
+          title: Subject Matter
+          type: string
+        sections:
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers:
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts:
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws:
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments:
+          title: Amendments
+          type: array
+          items:
+            type: string
     DocumentChunkWithScore:
       title: DocumentChunkWithScore
       required:
@@ -137,6 +174,43 @@ components:
         author:
           title: Author
           type: string
+        year:
+          title: Year
+          type: integer
+        law_type:
+          title: Law Type
+          type: string
+        jurisdiction:
+          title: Jurisdiction
+          type: string
+        subject_matter:
+          title: Subject Matter
+          type: string
+        sections:
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers:
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts:
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws:
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments:
+          title: Amendments
+          type: array
+          items:
+            type: string
     DocumentMetadataFilter:
       title: DocumentMetadataFilter
       type: object
@@ -158,6 +232,43 @@ components:
         end_date:
           title: End Date
           type: string
+        year:
+          title: Year
+          type: integer
+        law_type:
+          title: Law Type
+          type: string
+        jurisdiction:
+          title: Jurisdiction
+          type: string
+        subject_matter:
+          title: Subject Matter
+          type: string
+        sections:
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers:
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts:
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws:
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments:
+          title: Amendments
+          type: array
+          items:
+            type: string
     HTTPValidationError:
       title: HTTPValidationError
       type: object
