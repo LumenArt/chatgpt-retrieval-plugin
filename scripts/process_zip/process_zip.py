@@ -44,6 +44,9 @@ async def process_file_dump(
                 metadata = DocumentMetadata(
                     source=Source.file,
                     source_id=filename,
+                    title=custom_metadata.get('title'),
+                    referenced_law=custom_metadata.get('referenced_law'),
+                    keywords=custom_metadata.get('keywords'),
                 )
 
                 # update metadata with custom values
@@ -127,7 +130,7 @@ async def main():
     )
     parser.add_argument(
         "--extract_metadata",
-        default=False,
+        default=True,
         type=bool,
         help="A boolean flag to indicate whether to try to extract metadata from the document (using a language model)",
     )

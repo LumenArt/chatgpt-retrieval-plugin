@@ -103,6 +103,40 @@ components:
           type: string
         keywords:
           title: Keywords
+        year:
+          title: Year
+          type: integer
+        law_type:
+          title: Law Type
+          type: string
+        jurisdiction:
+          title: Jurisdiction
+          type: string
+        subject_matter:
+          title: Subject Matter
+          type: string
+        sections:
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers:
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts:
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws:
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments:
+          title: Amendments
           type: array
           items:
             type: string
@@ -159,7 +193,43 @@ components:
           type: array
           items:
             type: string
-          
+        year:
+          title: Year
+          type: integer
+        law_type:
+          title: Law Type
+          type: string
+        jurisdiction:
+          title: Jurisdiction
+          type: string
+        subject_matter:
+          title: Subject Matter
+          type: string
+        sections:
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers:
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts:
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws:
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments:
+          title: Amendments
+          type: array
+          items:
+            type: string
     DocumentMetadataFilter:
       title: DocumentMetadataFilter
       type: object
@@ -189,6 +259,40 @@ components:
           type: string
         keywords:
           title: Keywords
+        year:
+          title: Year
+          type: integer
+        law_type:
+          title: Law Type
+          type: string
+        jurisdiction:
+          title: Jurisdiction
+          type: string
+        subject_matter:
+          title: Subject Matter
+          type: string
+        sections:
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers:
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts:
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws:
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments:
+          title: Amendments
           type: array
           items:
             type: string
