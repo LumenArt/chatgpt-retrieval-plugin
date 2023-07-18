@@ -33,11 +33,16 @@ class DocumentChunkMetadata(DocumentMetadata):
     document_id: Optional[str] = None
 
 
-class DocumentChunk(BaseModel):
-    id: Optional[str] = None
-    text: str
-    metadata: DocumentChunkMetadata
-    embedding: Optional[List[float]] = None
+class DocumentMetadata(BaseModel):
+    source: Optional[Source] = None
+    source_id: Optional[str] = None
+    url: Optional[str] = None
+    created_at: Optional[str] = None
+    author: Optional[str] = None
+    title: Optional[str] = None  # new field
+    referenced_law: Optional[str] = None  # new field
+    keywords: Optional[List[str]] = None  # new field
+
 
 
 class DocumentChunkWithScore(DocumentChunk):
@@ -59,6 +64,9 @@ class DocumentMetadataFilter(BaseModel):
     source: Optional[Source] = None
     source_id: Optional[str] = None
     author: Optional[str] = None
+    title: Optional[str] = None  # new field
+    referenced_law: Optional[str] = None  # new field
+    keywords: Optional[List[str]] = None  # new field
     start_date: Optional[str] = None  # any date string format
     end_date: Optional[str] = None  # any date string format
 
