@@ -32,6 +32,20 @@ paths:
                 $ref: "#/components/schemas/HTTPValidationError"
 components:
   schemas:
+    Document:
+      title: Document
+      required:
+        - text
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        text:
+          title: Text
+          type: string
+        metadata:
+          $ref: "#/components/schemas/DocumentMetadata"
     DocumentChunkMetadata:
       title: DocumentChunkMetadata
       type: object
@@ -53,6 +67,17 @@ components:
         document_id:
           title: Document Id
           type: string
+        title:
+          title: Title
+          type: string
+        referenced_law:
+          title: Referenced Law
+          type: string
+        keywords:
+          title: Keywords
+          type: array
+          items:
+            type: string
     DocumentChunkWithScore:
       title: DocumentChunkWithScore
       required:
@@ -77,6 +102,35 @@ components:
         score:
           title: Score
           type: number
+    DocumentMetadata:
+      title: DocumentMetadata
+      type: object
+      properties:
+        source:
+          $ref: "#/components/schemas/Source"
+        source_id:
+          title: Source Id
+          type: string
+        url:
+          title: Url
+          type: string
+        created_at:
+          title: Created At
+          type: string
+        author:
+          title: Author
+          type: string
+        title:
+          title: Title
+          type: string
+        referenced_law:
+          title: Referenced Law
+          type: string
+        keywords:
+          title: Keywords
+          type: array
+          items:
+            type: string          
     DocumentMetadataFilter:
       title: DocumentMetadataFilter
       type: object
@@ -98,6 +152,17 @@ components:
         end_date:
           title: End Date
           type: string
+        title:
+          title: Title
+          type: string
+        referenced_law:
+          title: Referenced Law
+          type: string
+        keywords:
+          title: Keywords
+          type: array
+          items:
+            type: string
     HTTPValidationError:
       title: HTTPValidationError
       type: object
