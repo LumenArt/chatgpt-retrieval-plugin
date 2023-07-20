@@ -61,6 +61,18 @@ class DocumentMetadataFilter(BaseModel):
     author: Optional[str] = None
     start_date: Optional[str] = None  # any date string format
     end_date: Optional[str] = None  # any date string format
+    title: Optional[str] = None
+    referenced_law: Optional[str] = None
+    keywords: Optional[List[str]] = None
+    year: Optional[int] = None
+    law_type: Optional[str] = None
+    jurisdiction: Optional[str] = None
+    subject_matter: Optional[str] = None
+    sections: Optional[List[str]] = None
+    case_numbers: Optional[List[str]] = None
+    courts: Optional[List[str]] = None
+    related_laws: Optional[List[str]] = None
+    amendments: Optional[List[str]] = None
 
 
 class Query(BaseModel):
