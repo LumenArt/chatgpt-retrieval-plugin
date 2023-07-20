@@ -44,9 +44,18 @@ async def process_file_dump(
                 metadata = DocumentMetadata(
                     source=Source.file,
                     source_id=filename,
-                    title=custom_metadata.get('title'),
-                    referenced_law=custom_metadata.get('referenced_law'),
-                    keywords=custom_metadata.get('keywords'),
+                    title=custom_metadata.get("title"),
+                    referenced_law=custom_metadata.get("referenced_law"),
+                    keywords=custom_metadata.get("keywords"),
+                    year=custom_metadata.get("year"),
+                    law_type=custom_metadata.get("law_type"),
+                    jurisdiction=custom_metadata.get("jurisdiction"),
+                    subject_matter=custom_metadata.get("subject_matter"),
+                    sections=custom_metadata.get("sections"),
+                    case_numbers=custom_metadata.get("case_numbers"),
+                    courts=custom_metadata.get("courts"),
+                    related_laws=custom_metadata.get("related_laws"),
+                    amendments=custom_metadata.get("amendments"),
                 )
 
                 # update metadata with custom values

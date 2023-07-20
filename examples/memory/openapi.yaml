@@ -92,6 +92,54 @@ components:
         author:
           title: Author
           type: string
+        title: # new field
+          title: Title
+          type: string
+        referenced_law: # new field
+          title: Referenced Law
+          type: string
+        keywords: # new field
+          title: Keywords
+          type: array
+          items:
+            type: string
+        year: # new field
+          title: Year
+          type: integer
+        law_type: # new field
+          title: Law Type
+          type: string
+        jurisdiction: # new field
+          title: Jurisdiction
+          type: string
+        subject_matter: # new field
+          title: Subject Matter
+          type: string
+        sections: # new field
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers: # new field
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts: # new field
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws: # new field
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments: # new field
+          title: Amendments
+          type: array
+          items:
+            type: string
         document_id:
           title: Document Id
           type: string
@@ -137,27 +185,54 @@ components:
         author:
           title: Author
           type: string
-    DocumentMetadataFilter:
-      title: DocumentMetadataFilter
-      type: object
-      properties:
-        document_id:
-          title: Document Id
+        title: # new field
+          title: Title
           type: string
-        source:
-          $ref: "#/components/schemas/Source"
-        source_id:
-          title: Source Id
+        referenced_law: # new field
+          title: Referenced Law
           type: string
-        author:
-          title: Author
+        keywords: # new field
+          title: Keywords
+          type: array
+          items:
+            type: string
+        year: # new field
+          title: Year
+          type: integer
+        law_type: # new field
+          title: Law Type
           type: string
-        start_date:
-          title: Start Date
+        jurisdiction: # new field
+          title: Jurisdiction
           type: string
-        end_date:
-          title: End Date
+        subject_matter: # new field
+          title: Subject Matter
           type: string
+        sections: # new field
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers: # new field
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts: # new field
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws: # new field
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments: # new field
+          title: Amendments
+          type: array
+          items:
+            type: string
     HTTPValidationError:
       title: HTTPValidationError
       type: object

@@ -43,6 +43,15 @@ async def process_json_dump(
             title = item.get("title", None)
             referenced_law = item.get("referenced_law", None)
             keywords = item.get("keywords", None)
+            year = item.get("year", None)
+            law_type = item.get("law_type", None)
+            jurisdiction = item.get("jurisdiction", None)
+            subject_matter = item.get("subject_matter", None)
+            sections = item.get("sections", None)
+            case_numbers = item.get("case_numbers", None)
+            courts = item.get("courts", None)
+            related_laws = item.get("related_laws", None)
+            amendments = item.get("amendments", None)
 
             if not text:
                 print("No document text, skipping...")
@@ -58,6 +67,15 @@ async def process_json_dump(
                 title=title,
                 referenced_law=referenced_law,
                 keywords=keywords,
+                year=year,
+                law_type=law_type,
+                jurisdiction=jurisdiction,
+                subject_matter=subject_matter,
+                sections=sections,
+                case_numbers=case_numbers,
+                courts=courts,
+                related_laws=related_laws,
+                amendments=amendments,
             )
             print("metadata: ", str(metadata))
 
