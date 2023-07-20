@@ -16,7 +16,7 @@ class DocumentMetadata(BaseModel):
     created_at: Optional[str] = None
     author: Optional[str] = None
     title: Optional[str] = None
-    referenced_law: Optional[str] = None
+    referenced_law: Optional[List[str]] = None
     keywords: Optional[List[str]] = None
     year: Optional[int] = None
     law_type: Optional[str] = None
@@ -62,7 +62,7 @@ class DocumentMetadataFilter(BaseModel):
     start_date: Optional[str] = None  # any date string format
     end_date: Optional[str] = None  # any date string format
     title: Optional[str] = None
-    referenced_law: Optional[str] = None
+    referenced_law: Optional[List[str]] = None
     keywords: Optional[List[str]] = None
     year: Optional[int] = None
     law_type: Optional[str] = None
