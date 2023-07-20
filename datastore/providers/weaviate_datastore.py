@@ -77,21 +77,6 @@ SCHEMA = {
             "dataType": ["string"],
             "description": "Document author",
         },
-        {
-            "name": "title",
-            "dataType": ["string"],
-            "description": "The title of the document",
-        },
-        {
-            "name": "referenced_law",
-            "dataType": ["string"],
-            "description": "The referenced law in the document",
-        },
-        {
-            "name": "keywords",
-            "dataType": ["string"],
-            "description": "The keywords in the document",
-        },
     ],
 }
 
@@ -224,9 +209,6 @@ class WeaviateDataStore(DataStore):
                             "url",
                             "created_at",
                             "author",
-                            "title",
-                            "referenced_law",
-                            "keywords",                            
                         ],
                     )
                     .with_hybrid(query=query.query, alpha=0.5, vector=query.embedding)
@@ -248,9 +230,6 @@ class WeaviateDataStore(DataStore):
                             "url",
                             "created_at",
                             "author",
-                            "title",
-                            "referenced_law",
-                            "keywords", 
                         ],
                     )
                     .with_hybrid(query=query.query, alpha=0.5, vector=query.embedding)
@@ -276,9 +255,6 @@ class WeaviateDataStore(DataStore):
                         url=resp["url"],
                         created_at=resp["created_at"],
                         author=resp["author"],
-                        title=resp["title"],
-                        referenced_law=resp["referenced_law"],
-                        keywords=resp["keywords"],
                     ),
                 )
                 query_results.append(result)
@@ -351,9 +327,6 @@ class WeaviateDataStore(DataStore):
             },
             "start_date": {"operator": "GreaterThanEqual", "value_key": "valueDate"},
             "end_date": {"operator": "LessThanEqual", "value_key": "valueDate"},
-            "title": {"operator": "Equal", "value_key": "valueString"},
-            "referenced_law": {"operator": "Equal", "value_key": "valueString"},
-            "keywords": {"operator": "Equal", "value_key": "valueString"},
             "default": {"operator": "Equal", "value_key": "valueString"},
         }
 

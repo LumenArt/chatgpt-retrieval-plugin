@@ -95,14 +95,6 @@ components:
         document_id:
           title: Document Id
           type: string
-        title:
-          title: Title
-          type: string
-        referenced_law:
-          title: Referenced Law
-          type: string
-        keywords:
-          title: Keywords
         year:
           title: Year
           type: integer
@@ -182,17 +174,6 @@ components:
         author:
           title: Author
           type: string
-        title:
-          title: Title
-          type: string
-        referenced_law:
-          title: Referenced Law
-          type: string
-        keywords:
-          title: Keywords
-          type: array
-          items:
-            type: string
         year:
           title: Year
           type: integer
@@ -251,14 +232,6 @@ components:
         end_date:
           title: End Date
           type: string
-        title:
-          title: Title
-          type: string
-        referenced_law:
-          title: Referenced Law
-          type: string
-        keywords:
-          title: Keywords
         year:
           title: Year
           type: integer
