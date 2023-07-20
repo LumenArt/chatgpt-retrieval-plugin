@@ -17,7 +17,7 @@ def extract_metadata_from_document(text: str) -> Dict[str, str]:
             - created_at: string or don't specify
             - author: string or don't specify
             - title: string or don't specify
-            - referenced_law: string or don't specify
+            - referenced_law: strings or don't specify
             - keywords: list of strings or don't specify
             - year: integer or don't specify
             - law_type: string or don't specify
