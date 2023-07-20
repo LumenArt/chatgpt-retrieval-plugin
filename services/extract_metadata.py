@@ -21,12 +21,22 @@ def extract_metadata_from_document(text: str) -> Dict[str, str]:
             - title: string or don't specify
             - referenced_law: string or don't specify
             - keywords: list of strings or don't specify
+            - year: integer or don't specify
+            - law_type: string or don't specify
+            - jurisdiction: string or don't specify
+            - subject_matter: string or don't specify
+            - sections: list of strings or don't specify
+            - case_numbers: list of strings or don't specify
+            - courts: list of strings or don't specify
+            - related_laws: list of strings or don't specify
+            - amendments: list of strings or don't specify
 
             Respond with a JSON containing the extracted metadata in key value pairs. If you don't find a metadata field, don't specify it.
             """,
         },
         {"role": "user", "content": text},
     ]
+    
     completion = get_chat_completion(
         messages, "gpt-4"
     )  # TODO: change to your preferred model name
