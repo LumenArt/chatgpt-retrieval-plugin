@@ -3,13 +3,39 @@ info:
   title: Retrieval Plugin API
   description: A retrieval API for querying and filtering documents based on natural language queries and metadata
   version: 1.0.0
-  servers:
-    - url: https://your-app-url.com
+servers:
+  - url: https://retrieval-plugin-server-oyz4.onrender.com
 paths:
+  /upsert:
+    post:
+      summary: Upsert
+      description: Save chat or file content information. Accepts an array of documents with text (potential questions + conversation text), metadata (source 'chat' and timestamp, no ID as this will be generated) Also extract author, year, law type, jurisdiction, subject matter, sections, case numbers, courts, related laws, and amendments or leave empty. Confirm with the user before saving, ask for more details/context.
+      operationId: upsert_upsert_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpsertRequest"
+        required: true
+      responses:
+        "200":
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpsertResponse"
+        "422":
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HTTPValidationError"
+      security:
+        - HTTPBearer: []
   /query:
     post:
       summary: Query
-      description: Accepts search query objects array each with query and optional filter. Break down complex questions into sub-questions. Refine results by criteria, e.g. time / source, don't do this often. Split queries if ResponseTooLargeError occurs.
+      description: Accepts search query objects array each with query and optional filter. Break down complex questions into sub-questions. Refine results by criteria, e.g. time / source, author, year, law type, jurisdiction, subject matter, sections, case numbers, courts, related laws, and amendments. Don't do this often. Split queries if ResponseTooLargeError occurs.
       operationId: query_query_post
       requestBody:
         content:
@@ -34,6 +60,20 @@ paths:
         - HTTPBearer: []
 components:
   schemas:
+    Document:
+      title: Document
+      required:
+        - text
+      type: object
+      properties:
+        id:
+          title: Id
+          type: string
+        text:
+          title: Text
+          type: string
+        metadata:
+          $ref: "#/components/schemas/DocumentMetadata"
     DocumentChunkMetadata:
       title: DocumentChunkMetadata
       type: object
@@ -55,6 +95,43 @@ components:
         document_id:
           title: Document Id
           type: string
+        year:
+          title: Year
+          type: integer
+        law_type:
+          title: Law Type
+          type: string
+        jurisdiction:
+          title: Jurisdiction
+          type: string
+        subject_matter:
+          title: Subject Matter
+          type: string
+        sections:
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers:
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts:
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws:
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments:
+          title: Amendments
+          type: array
+          items:
+            type: string
     DocumentChunkWithScore:
       title: DocumentChunkWithScore
       required:
@@ -79,6 +156,61 @@ components:
         score:
           title: Score
           type: number
+    DocumentMetadata:
+      title: DocumentMetadata
+      type: object
+      properties:
+        source:
+          $ref: "#/components/schemas/Source"
+        source_id:
+          title: Source Id
+          type: string
+        url:
+          title: Url
+          type: string
+        created_at:
+          title: Created At
+          type: string
+        author:
+          title: Author
+          type: string
+        year:
+          title: Year
+          type: integer
+        law_type:
+          title: Law Type
+          type: string
+        jurisdiction:
+          title: Jurisdiction
+          type: string
+        subject_matter:
+          title: Subject Matter
+          type: string
+        sections:
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers:
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts:
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws:
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments:
+          title: Amendments
+          type: array
+          items:
+            type: string
     DocumentMetadataFilter:
       title: DocumentMetadataFilter
       type: object
@@ -100,6 +232,43 @@ components:
         end_date:
           title: End Date
           type: string
+        year:
+          title: Year
+          type: integer
+        law_type:
+          title: Law Type
+          type: string
+        jurisdiction:
+          title: Jurisdiction
+          type: string
+        subject_matter:
+          title: Subject Matter
+          type: string
+        sections:
+          title: Sections
+          type: array
+          items:
+            type: string
+        case_numbers:
+          title: Case Numbers
+          type: array
+          items:
+            type: string
+        courts:
+          title: Courts
+          type: array
+          items:
+            type: string
+        related_laws:
+          title: Related Laws
+          type: array
+          items:
+            type: string
+        amendments:
+          title: Amendments
+          type: array
+          items:
+            type: string
     HTTPValidationError:
       title: HTTPValidationError
       type: object
@@ -169,6 +338,28 @@ components:
         - chat
       type: string
       description: An enumeration.
+    UpsertRequest:
+      title: UpsertRequest
+      required:
+        - documents
+      type: object
+      properties:
+        documents:
+          title: Documents
+          type: array
+          items:
+            $ref: "#/components/schemas/Document"
+    UpsertResponse:
+      title: UpsertResponse
+      required:
+        - documents
+      type: object
+      properties:
+        documents:
+          title: Documents
+          type: array
+          items:
+            $ref: "#/components/schemas/Document"
     ValidationError:
       title: ValidationError
       required:
