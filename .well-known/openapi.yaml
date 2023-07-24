@@ -352,14 +352,14 @@ components:
     UpsertResponse:
       title: UpsertResponse
       required:
-        - documents
+        - ids
       type: object
       properties:
-        documents:
-          title: Documents
+        ids:
+          title: Ids
           type: array
           items:
-            $ref: "#/components/schemas/Document"
+            type: string
     ValidationError:
       title: ValidationError
       required:
