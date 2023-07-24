@@ -77,66 +77,6 @@ SCHEMA = {
             "dataType": ["string"],
             "description": "Document author",
         },
-        {
-            "name": "title",
-            "dataType": ["string"],
-            "description": "Document title",
-        },
-        {
-            "name": "referenced_law",
-            "dataType": ["string"],
-            "description": "Referenced law",
-        },
-        {
-            "name": "keywords",
-            "dataType": ["string"],
-            "description": "Keywords",
-        },
-        {
-            "name": "year",
-            "dataType": ["int"],
-            "description": "Year of the document",
-        },
-        {
-            "name": "law_type",
-            "dataType": ["string"],
-            "description": "Type of the law",
-        },
-        {
-            "name": "jurisdiction",
-            "dataType": ["string"],
-            "description": "Jurisdiction",
-        },
-        {
-            "name": "subject_matter",
-            "dataType": ["string"],
-            "description": "Subject matter of the document",
-        },
-        {
-            "name": "sections",
-            "dataType": ["string"],
-            "description": "Sections of the document",
-        },
-        {
-            "name": "case_numbers",
-            "dataType": ["string"],
-            "description": "Case numbers",
-        },
-        {
-            "name": "courts",
-            "dataType": ["string"],
-            "description": "Courts related to the document",
-        },
-        {
-            "name": "related_laws",
-            "dataType": ["string"],
-            "description": "Related laws",
-        },
-        {
-            "name": "amendments",
-            "dataType": ["string"],
-            "description": "Amendments of the document",
-        },
     ],
 }
 
