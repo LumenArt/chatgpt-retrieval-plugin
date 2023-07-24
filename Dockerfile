@@ -22,7 +22,7 @@ COPY . /code/
 
 ARG RENDER_EXTERNAL_HOSTNAME
 # This finds instances of the placeholder domain and replaces them with the actual domain
-RUN grep -rl "your-app-url.com" . | xargs sed -i "s/your-app-url.com/${RENDER_EXTERNAL_HOSTNAME}/g"
+RUN grep -rl "retrieval-plugin-server-oyz4.onrender.com" . | xargs sed -i "s/retrieval-plugin-server-oyz4.onrender.com/${RENDER_EXTERNAL_HOSTNAME}/g"
 
 # The Blueprint file can inject the hostname into the environment, but source code expects http://hostname format
 ARG WEAVIATE_HOSTNAME
