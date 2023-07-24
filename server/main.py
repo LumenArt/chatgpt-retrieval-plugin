@@ -40,7 +40,7 @@ app.mount("/.well-known", StaticFiles(directory=".well-known"), name="static")
 # Create a sub-application, in order to access just the upsert and query endpoints in the OpenAPI schema, found at http://0.0.0.0:8000/sub/openapi.json when the app is running locally
 sub_app = FastAPI(
     title="Retrieval Plugin API",
-    description="A retrieval API for querying and filtering documents based on natural language queries and metadata",
+    description="A retrieval API for querying and filtering documents based on natural language queries and metadata duch as author, year, law type, jurisdiction, subject matter, sections, case numbers, courts, related laws, and amendments.",
     version="1.0.0",
     servers=[{"url": "https://retrieval-plugin-server-oyz4.onrender.com"}],
     dependencies=[Depends(validate_token)],
@@ -95,7 +95,7 @@ async def upsert_main(
     "/upsert",
     response_model=UpsertResponse,
     # NOTE: We are describing the shape of the API endpoint input due to a current limitation in parsing arrays of objects from OpenAPI schemas. This will not be necessary in the future.
-    description="Save chat information. Accepts an array of documents with text (potential questions + conversation text), metadata (source 'chat' and timestamp, no ID as this will be generated). Confirm with the user before saving, ask for more details/context.",
+    description="Save chat information. Accepts an array of documents with text (potential questions + conversation text), metadata (source 'chat' and timestamp, no ID as this will be generated) Also extract metadata such as author, year, law type, jurisdiction, subject matter, sections, case numbers, courts, related laws, and amendments. Leave empty if not metadata is found. Confirm with the user before saving, ask for more details/context.",
 )
 async def upsert(
     request: UpsertRequest = Body(...),
@@ -131,7 +131,7 @@ async def query_main(
     "/query",
     response_model=QueryResponse,
     # NOTE: We are describing the shape of the API endpoint input due to a current limitation in parsing arrays of objects from OpenAPI schemas. This will not be necessary in the future.
-    description="Accepts search query objects array each with query and optional filter. Break down complex questions into sub-questions. Refine results by criteria, e.g. time / source, don't do this often. Split queries if ResponseTooLargeError occurs.",
+    description="Accepts search query objects array each with a query and optional filter. The filter can be used to refine results based on metadata such as author, year, law type, jurisdiction, subject matter, sections, case numbers, courts, related laws, and amendments. Break down complex questions into sub-questions. Refine results by criteria, e.g. time / source, author, year, law type, related laws, subject matter. Split queries if ResponseTooLargeError occurs.",
 )
 async def query(
     request: QueryRequest = Body(...),
